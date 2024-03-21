@@ -5,18 +5,20 @@ typedef struct{
   int denominator;
 }rational;
 int k = 0;
-struct result;
+rational result2;
 void simplify(rational frac){
   if(frac.numerator < frac.denominator){
-    result.numerator = frac.numerator;
-  result.denominator = result.denominator;
+    result2.numerator = frac.numerator;
+  result2.denominator = frac.denominator;
   }
   else{
-  int k = frac.numerator / frac.denominator;
-  frac.numerator -= k * frac.denominator;
-  result.numerator = frac.numerator;
-  result.denominator = result.denominator;
+   k = frac.numerator / frac.denominator;
+   // cout<<frac.numerator/frac.denominator<<endl;
+  frac.numerator -= (k * frac.denominator);
+  result2.numerator = frac.numerator;
+  result2.denominator = frac.denominator;
     return;
+  }
 }
 rational fadd(rational num1, rational num2){
   rational result;
@@ -26,6 +28,7 @@ rational fadd(rational num1, rational num2){
   result.numerator /= g;
   result.denominator /= g;
   simplify(result);
+  return result;
 }
 rational fsub(rational num1, rational num2){
   rational result;
@@ -67,8 +70,12 @@ int main(){
   cin>>oper;
   if(oper == '+'){
     fadd(a, b);
-    if(k == 0){
-      cout<<result.numerator<<"/"<<result.denominator<<endl;
+    /*if(k == 0){
+      cout<<result2.numerator<<"/"<<result2.denominator<<endl;
+    }
+    else{*/
+      cout<<k<<" "<<result2.numerator<<"/"<<result2.denominator<<endl;
+    //
   }
   if(oper == '-'){
     rational d = fsub(a, b);
@@ -90,6 +97,6 @@ int main(){
       cout<<a.numerator<<"/"<<a.denominator<<" is smaller than or equal to "<<b.numerator<<"/"<<b.denominator<<endl;
     }
   }
-  
- 
+
+
 }
