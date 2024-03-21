@@ -4,7 +4,20 @@ typedef struct{
   int numerator;
   int denominator;
 }rational;
-
+int k = 0;
+struct result;
+void simplify(rational frac){
+  if(frac.numerator < frac.denominator){
+    result.numerator = frac.numerator;
+  result.denominator = result.denominator;
+  }
+  else{
+  int k = frac.numerator / frac.denominator;
+  frac.numerator -= k * frac.denominator;
+  result.numerator = frac.numerator;
+  result.denominator = result.denominator;
+    return;
+}
 rational fadd(rational num1, rational num2){
   rational result;
   result.numerator = num1.numerator * num2.denominator + num2.numerator * num1.denominator;
@@ -12,7 +25,7 @@ rational fadd(rational num1, rational num2){
   int g = __gcd(result.numerator, result.denominator);
   result.numerator /= g;
   result.denominator /= g;
-  return result;
+  simplify(result);
 }
 rational fsub(rational num1, rational num2){
   rational result;
@@ -53,8 +66,9 @@ int main(){
   char oper;
   cin>>oper;
   if(oper == '+'){
-    rational d = fadd(a, b);
-     cout<<d.numerator<<"/"<<d.denominator<<endl;
+    fadd(a, b);
+    if(k == 0){
+      cout<<result.numerator<<"/"<<result.denominator<<endl;
   }
   if(oper == '-'){
     rational d = fsub(a, b);
