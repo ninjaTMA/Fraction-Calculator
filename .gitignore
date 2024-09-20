@@ -1,0 +1,11 @@
+# Ignore VSCode configuration folder
+.vscode/
+
+# Ignore default output binary from gcc/clang
+a.out
+
+# Ignore the compiled executable
+fc
+
+# Ignore object files
+*.o
