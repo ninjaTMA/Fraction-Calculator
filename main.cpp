@@ -1,6 +1,7 @@
 #include <iostream>
 #include <numeric>
 #include <ratio>
+#include <algorithm>
 
 using namespace std;
 typedef struct{
