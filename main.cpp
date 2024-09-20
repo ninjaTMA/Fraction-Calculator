@@ -6,31 +6,25 @@ typedef struct{
 }rational;
 int k = 0;
 rational result2;
-void simplify(rational frac){
-  if(frac.numerator < frac.denominator){
-    result2.numerator = frac.numerator;
-  result2.denominator = frac.denominator;
-  }
-  else{
-   k = frac.numerator / frac.denominator;
-   // cout<<frac.numerator/frac.denominator<<endl;
-  frac.numerator -= (k * frac.denominator);
-  result2.numerator = frac.numerator;
-  result2.denominator = frac.denominator;
-    return;
-  }
+void printout(ration f){
+  cout<<f.numerator;
+  cout<<"/";
+  cout<<f.denominator;
 }
-rational fadd(rational num1, rational num2){
+
+
+rational fadd(rational num1, rational num2){//Fraction Addition
   rational result;
   result.numerator = num1.numerator * num2.denominator + num2.numerator * num1.denominator;
   result.denominator = num1.denominator * num2.denominator;
   int g = __gcd(result.numerator, result.denominator);
   result.numerator /= g;
   result.denominator /= g;
-  simplify(result);
   return result;
 }
-rational fsub(rational num1, rational num2){
+
+
+rational fsub(rational num1, rational num2){//Fraction Subtraction
   rational result;
   result.numerator = num1.numerator * num2.denominator - num2.numerator * num1.denominator;
   result.denominator = num1.denominator * num2.denominator;
@@ -39,7 +33,9 @@ rational fsub(rational num1, rational num2){
   result.denominator /= g;
   return result;
 }
-rational fmul(rational num1, rational num2){
+
+
+rational fmul(rational num1, rational num2){//Fraction Multiplication
   rational result;
   result.numerator = num1.numerator * num2.numerator;
   result.denominator = num1.denominator * num2.denominator;
@@ -48,7 +44,9 @@ rational fmul(rational num1, rational num2){
   result.denominator /= g;
   return result;
 }
-rational fdiv(rational num1, rational num2){
+
+
+rational fdiv(rational num1, rational num2){//Fraction Divide
   rational result;
   result.numerator = num1.numerator * num2.denominator;
   result.denominator = num1.denominator * num2.numerator;
@@ -57,9 +55,13 @@ rational fdiv(rational num1, rational num2){
   result.denominator /= g;
   return result;
 }
-bool fcmp(rational num1, rational num2){
+
+
+bool fcmp(rational num1, rational num2){//Fraction Comparing
   return num1.numerator * num2.denominator - num2.numerator * num1.denominator > 0;
 }
+
+
 int main(){
   rational a, b;
   cin>>a.numerator;
@@ -69,25 +71,20 @@ int main(){
   char oper;
   cin>>oper;
   if(oper == '+'){
-    fadd(a, b);
-    /*if(k == 0){
-      cout<<result2.numerator<<"/"<<result2.denominator<<endl;
-    }
-    else{*/
-      cout<<k<<" "<<result2.numerator<<"/"<<result2.denominator<<endl;
-    //
+    rational d = fadd(a, b);
+    printout(d); 
   }
   if(oper == '-'){
     rational d = fsub(a, b);
-     cout<<d.numerator<<"/"<<d.denominator<<endl;
+     printout(d);
   }
   if(oper == '*'){
     rational d = fmul(a, b);
-     cout<<d.numerator<<"/"<<d.denominator<<endl;
+     printout(d);
   }
   if(oper == '/'){
     rational d = fdiv(a, b);
-     cout<<d.numerator<<"/"<<d.denominator<<endl;
+     printout(d);
   }
   if(oper == '>' || oper == '<' || oper == '='){
     if(fcmp(a, b)){
