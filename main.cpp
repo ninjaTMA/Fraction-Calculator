@@ -68,12 +68,16 @@ bool fcmp(rational num1, rational num2){//Fraction Comparing
 
 int main(){
   rational a, b;
+  char oper, tmp;
   cin>>a.numerator;
+  cin>>tmp;
   cin>>a.denominator;
-  cin>>b.numerator;
-  cin>>b.denominator;
-  char oper;
   cin>>oper;
+  cin>>b.numerator;
+  cin>>tmp;
+  cin>>b.denominator;
+ 
+  
   if(oper == '+'){
     rational d = fadd(a, b);
     printout(d); 
