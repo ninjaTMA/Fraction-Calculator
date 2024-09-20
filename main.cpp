@@ -76,8 +76,6 @@ int main(){
   cin>>b.numerator;
   cin>>tmp;
   cin>>b.denominator;
-  
- 
   if(oper == '+'){
     rational d = fadd(a, b);
     printout(d); 
