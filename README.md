@@ -1,1 +1,1 @@
-A simple calculator than can calucalte normal and improper fractions.
+A simple calculator than can calculate normal and improper fractions.
